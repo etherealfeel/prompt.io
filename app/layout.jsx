@@ -1,4 +1,7 @@
 import '@styles/globals.css';
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
+import Footer from '@components/Footer';
 
 export const metadata = {
     title: 'prompt.io',
@@ -8,12 +11,18 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
-            <body>
+           <body>   
+            <Provider>  
                 <div className="main">
                     <div className="gradient" />
                 </div>
 
-                <main className="app">{children}</main>
+                <main className="app">
+                    <Nav />
+                    {children}
+                    <Footer />
+                </main> 
+           </Provider>
             </body>
         </html>
     );
