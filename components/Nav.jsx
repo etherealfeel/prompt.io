@@ -20,7 +20,7 @@ const Nav = () => {
         setUpProviders();
     }, []);
     return (
-        <nav className="flex-between w-full mb-15 p-5">
+        <nav className="flex-between w-full mb-15 p-5 absolute top-0 left-0">
             <Link href="/" className="flex gap-2 flex-center">
                 <Image
                     src="/assets/images/logo.png"
