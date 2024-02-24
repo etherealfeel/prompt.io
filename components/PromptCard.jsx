@@ -8,7 +8,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     const [copied, setCopied] = useState('');
     const { data: session } = useSession();
     const router = useRouter();
-    const { pathname } = usePathname();
+    const pathname = usePathname();
 
     const handleCopy = () => {
         setCopied(post.prompt);
@@ -56,9 +56,27 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                     className="font-inter text-sm rounded-full py-1 px-2 bg-blue-200"
                     onClick={() => handleTagClick && handleTagClick(post.tag)}
                 >
-                    {post.tag}
+                    #{post.tag}
                 </span>
             </p>
+            {session?.user.id === post.author._id &&
+                pathname === '/profile' && (
+                    // TODO: fix styling eg vr/button icons
+                    <div className="mt-10 flex-center gap-4">
+                        <p
+                            className="font-inter text-sm green_gradient cursor-pointer"
+                            onClick={handleEdit}
+                        >
+                            Edit
+                        </p>
+                        <p
+                            className="font-inter text-sm orange_gradient cursor-pointer"
+                            onClick={handleDelete}
+                        >
+                            Delete
+                        </p>
+                    </div>
+                )}
         </div>
     );
 };
