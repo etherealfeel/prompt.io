@@ -16,10 +16,21 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         setTimeout(() => setCopied(''), 5000);
     };
 
+    const handleUserClick = () => {
+        return session?.user.id === post.author._id
+            ? router.push('/profile')
+            : router.push(
+                  `/profile/${post.author._id}?name=${post.author.username}`
+              );
+    };
+
     return (
         <div className="prompt_card">
             <div className="flex justify-between items-start gap-5">
-                <div className="flex-1 flex cursor-pointer gap-3 items-center">
+                <div
+                    className="flex-1 flex cursor-pointer gap-3 items-center"
+                    onClick={handleUserClick}
+                >
                     <Image
                         src={post.author.image}
                         alt="author_image"
@@ -43,8 +54,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                                 ? '/assets/icons/tick.svg'
                                 : '/assets/icons/copy.svg'
                         }
-                        width={12}
-                        height={12}
+                        width={15}
+                        height={15}
                     />
                 </div>
             </div>
