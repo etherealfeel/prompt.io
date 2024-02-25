@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
     return (
-        <section className="w-full max-w-full flex-start flex-col">
+        <section className="w-full max-w-full flex-start flex-col my-40">
             <h1 className="head_text text-left">
-                <span className="blue_gradient">{type} Prompt</span>
+                <span className="purple_gradient">{type} Prompt</span>
             </h1>
             <p className="desc text-left max-w-md">
                 Your prompt, our world. Inspire, connect, create.
@@ -49,7 +49,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
                     />
                 </label>
 
-                <div className="flex-end mx-3 mb-5 gap-4">
+                <div className="m-5 gap-4 flex justify-between">
                     <Link
                         className="text-sm px-5 py-1 rounded-full text-white bg-primary-orange"
                         href="/"

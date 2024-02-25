@@ -48,9 +48,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                     />
                 </div>
             </div>
-            <hr className="h-px my-2 border-0 dark:bg-gray-500" />
-            <p className="font-satoshi text-sm">{post.prompt}</p>
-            <hr className="h-px my-2 border-0 dark:bg-gray-500" />
+            <p className="font-mons italic text-sm my-5">{post.prompt}</p>
             <p>
                 <span
                     className="font-inter text-sm rounded-full py-1 px-2 bg-blue-200"
@@ -61,20 +59,23 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             </p>
             {session?.user.id === post.author._id &&
                 pathname === '/profile' && (
-                    // TODO: fix styling eg vr/button icons
                     <div className="mt-10 flex-center gap-4">
-                        <p
-                            className="font-inter text-sm green_gradient cursor-pointer"
+                        <Image
+                            src="/assets/icons/edit.png"
+                            alt="edit"
+                            width={20}
+                            height={20}
                             onClick={handleEdit}
-                        >
-                            Edit
-                        </p>
-                        <p
-                            className="font-inter text-sm orange_gradient cursor-pointer"
+                            className="cursor-pointer"
+                        />
+                        <Image
+                            src="/assets/icons/delete.png"
+                            alt="delete"
+                            width={20}
+                            height={20}
                             onClick={handleDelete}
-                        >
-                            Delete
-                        </p>
+                            className="cursor-pointer"
+                        />
                     </div>
                 )}
         </div>
