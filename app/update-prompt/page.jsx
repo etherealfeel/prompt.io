@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 import Form from '@components/Form';
 
@@ -58,4 +59,12 @@ const UpdatePrompt = () => {
     );
 };
 
-export default UpdatePrompt;
+const SuspensedPrompt = () => {
+    return (
+        <Suspense>
+            <UpdatePrompt />
+        </Suspense>
+    );
+};
+
+export default SuspensedPrompt;
